@@ -1,16 +1,29 @@
-import * as THREE from 'three'
-import { useGLTF } from '@react-three/drei'
+import * as THREE from "three";
+import { useGLTF } from "@react-three/drei";
+import { defaultColor } from "../../../HtmlUi";
+import { useAtom } from "jotai";
 
-export const Shoe = ({ color, ...props }) => {
-  const { nodes, materials } = useGLTF('/shoe.gltf')
-  console.log(materials)
-  console.log(nodes)
+export const Shoe = ({ ...props }) => {
+  const { nodes, materials } = useGLTF("/shoe.gltf");
+  // console.log(materials);
+  // console.log(nodes);
+  // console.log(defaultColor);
+
+  const [selectedColor] = useAtom(defaultColor);
+
+  console.log(selectedColor);
   return (
     <group {...props} dispose={null}>
-      <mesh castShadow receiveShadow geometry={nodes.shoe.geometry} material={materials.laces} material-envMapIntensity={0.8} />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.shoe.geometry}
+        material={materials.laces}
+        material-envMapIntensity={0.8}
+      />
       <mesh castShadow receiveShadow geometry={nodes.shoe_1.geometry}>
         <meshStandardMaterial
-          color={color}
+          color={selectedColor.hex}
           aoMap={materials.mesh.aoMap}
           normalMap={materials.mesh.normalMap}
           normalMap-encoding={THREE.LinearEncoding}
@@ -19,12 +32,48 @@ export const Shoe = ({ color, ...props }) => {
           envMapIntensity={0.8}
         />
       </mesh>
-      <mesh castShadow receiveShadow geometry={nodes.shoe_2.geometry} material={materials.caps} material-envMapIntensity={0.8} />
-      <mesh castShadow receiveShadow geometry={nodes.shoe_3.geometry} material={materials.inner} material-envMapIntensity={0.8} />
-      <mesh castShadow receiveShadow geometry={nodes.shoe_4.geometry} material={materials.sole} material-envMapIntensity={0.8} />
-      <mesh castShadow receiveShadow geometry={nodes.shoe_5.geometry} material={materials.stripes} material-envMapIntensity={0.8} />
-      <mesh castShadow receiveShadow geometry={nodes.shoe_6.geometry} material={materials.band} material-envMapIntensity={0.8} />
-      <mesh castShadow receiveShadow geometry={nodes.shoe_7.geometry} material={materials.patch} material-envMapIntensity={0.8} />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.shoe_2.geometry}
+        material={materials.caps}
+        material-envMapIntensity={0.8}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.shoe_3.geometry}
+        material={materials.inner}
+        material-envMapIntensity={0.8}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.shoe_4.geometry}
+        material={materials.sole}
+        material-envMapIntensity={0.8}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.shoe_5.geometry}
+        material={materials.stripes}
+        material-envMapIntensity={0.8}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.shoe_6.geometry}
+        material={materials.band}
+        material-envMapIntensity={0.8}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.shoe_7.geometry}
+        material={materials.patch}
+        material-envMapIntensity={0.8}
+      />
     </group>
-  )
-}
+  );
+};

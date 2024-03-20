@@ -1,1 +1,1 @@
-export { CanvasComponent } from "./Canvas";
+export { CanvasComponent } from './Canvas'

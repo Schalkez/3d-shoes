@@ -1,10 +1,11 @@
-import { CanvasComponent } from "./components/Canvas";
-import { HtmlUi } from "./components/HtmlUi";
+import { CanvasComponent } from './components/Canvas'
+import { HtmlUi } from './components/HtmlUi'
+import React from 'react'
 
-export default function App() {
+export default function App () {
   return (
-    <HtmlUi>
-      <CanvasComponent />
-    </HtmlUi>
-  );
+		<HtmlUi>
+			<CanvasComponent />
+		</HtmlUi>
+  )
 }

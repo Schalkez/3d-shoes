@@ -1,17 +1,19 @@
-import * as THREE from "three";
-import { useGLTF } from "@react-three/drei";
-import { defaultColor } from "../../../HtmlUi";
-import { useAtom } from "jotai";
+import * as THREE from 'three'
+import { useGLTF, Text } from '@react-three/drei'
+import { useAtom } from 'jotai'
+import React from 'react'
+import { defaultColor } from '../../../../globalConstants/selectedColor'
 
 export const Shoe = ({ ...props }) => {
-  const { nodes, materials } = useGLTF("/shoe.gltf");
+  const [selectedColor] = useAtom(defaultColor)
+
+  const { nodes, materials } = useGLTF('/shoe.gltf')
   // console.log(materials);
   // console.log(nodes);
   // console.log(defaultColor);
 
-  const [selectedColor] = useAtom(defaultColor);
+  // console.log(selectedColor);
 
-  console.log(selectedColor);
   return (
     <group {...props} dispose={null}>
       <mesh
@@ -32,6 +34,13 @@ export const Shoe = ({ ...props }) => {
           envMapIntensity={0.8}
         />
       </mesh>
+      <Text
+        scale={[0.1, 0.1, 0.1]}
+        color="black" // default
+        position={[1, 1, 1]}
+      >
+        HELLO WORLD
+      </Text>
       <mesh
         castShadow
         receiveShadow
@@ -75,5 +84,5 @@ export const Shoe = ({ ...props }) => {
         material-envMapIntensity={0.8}
       />
     </group>
-  );
-};
+  )
+}

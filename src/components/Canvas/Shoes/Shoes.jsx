@@ -1,11 +1,15 @@
-import { Stage } from "@react-three/drei";
-import { Shoe } from "./Shoe";
+import { Shoe } from './Shoe'
+import React, { Suspense } from 'react'
 
 export const Shoes = () => {
   return (
-    <Stage environment="city" intensity={0.6}>
-      <Shoe position={[0, 0, 0]} />
-      <Shoe scale={-1} rotation={[0, 0.5, Math.PI]} position={[0, 0, -2]} />
-    </Stage>
-  );
-};
+    <Suspense fallback={null}>
+      {/* <Stage> */}
+      <group>
+        <Shoe position={[0, 0, 0]} />
+        <Shoe scale={-1} rotation={[0, 0.5, Math.PI]} position={[0, 0, -2]} />
+      </group>
+      {/* </Stage> */}
+    </Suspense>
+  )
+}

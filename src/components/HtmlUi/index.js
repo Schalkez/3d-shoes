@@ -1,1 +1,1 @@
-export { HtmlUi, defaultColor } from "./HtmlUi";
+export { HtmlUi } from './HtmlUi'
